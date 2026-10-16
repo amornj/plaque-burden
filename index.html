@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1524">
+<meta name="description" content="IVUS and OCT device runs for plaque burden and stent expansion measurements.">
+<title>Plaque Burden — Device Runs</title>
+<link rel="stylesheet" href="styles.css">
+<script src="study-store.js" defer>
+</script>
+<script src="app.js" defer>
+</script>
+</head>
+<body>
+<main class="app-shell">
+<header class="topbar">
+<div class="brand-mark" aria-hidden="true">
+<span>
+</span>
+</div>
+<div class="brand-copy">
+<div class="eyebrow">CATH LAB TOOLS</div>
+<h1>Plaque Burden</h1>
+</div>
+<div class="app-menu-wrap">
+<button id="app-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="app-menu">
+<span class="hamburger-icon" aria-hidden="true">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</span>
+</button>
+<nav id="app-menu" aria-label="App menu" hidden>
+<button id="menu-exam" type="button" hidden>Back to exam</button>
+<button id="menu-records" type="button">Records</button>
+<button id="new-exam" type="button">New exam</button>
+<div class="export-actions" aria-label="PDF export">
+<button id="export-selected" class="export-button" type="button" disabled>↓ Export selected (0)</button>
+<button id="export" class="export-button" type="button">↓ Export all</button>
+</div>
+</nav>
+</div>
+</header>
+<div class="save-feedback" data-state="loading">
+<p id="save-status" role="status">Starting exam…</p>
+<button id="retry-save" type="button" hidden>Retry saving</button>
+<button id="reload-study" type="button" hidden>Reload saved study</button>
+</div>
+<section id="exam-page" inert aria-busy="true">
+<div class="study-toolbar" hidden>
+<span id="study-mode" class="section-kicker">EDITING SAVED STUDY</span>
+<div class="study-actions">
+<button id="back-records" type="button">← Records</button>
+</div>
+</div>
+<section class="patient-panel">
+<div class="patient-heading">
+<label for="patient-data">Patient data</label>
+<button id="patient-data-toggle" class="patient-toggle frame-action" type="button" aria-expanded="false" aria-controls="patient-data" aria-label="Add patient data" title="Add patient data"><span aria-hidden="true">+</span></button>
+</div>
+<textarea id="patient-data" rows="2" placeholder="Enter patient details" hidden></textarea>
+</section>
+<section class="intro">
+<h2>Device runs</h2>
+</section>
+<div class="export-selection-controls">
+<span id="selection-count" role="status">
+</span>
+<div>
+<button id="select-all" type="button">Select all</button>
+<button id="clear-selection" type="button">Clear</button>
+</div>
+</div>
+<div id="runs">
+</div>
+<p id="empty-runs" class="run-empty" hidden>Add a device run to start.</p>
+<button id="add-run" class="add-segment" type="button">
+<span>+</span> Add device run</button>
+<p id="notice" role="status" class="disclaimer">
+</p>
+</section>
+<section id="records-page" hidden aria-labelledby="records-heading">
+<div class="records-heading">
+<div>
+<p class="section-kicker">ON THIS DEVICE</p>
+<h2 id="records-heading" tabindex="-1">Records</h2>
+</div>
+<button id="records-current" type="button">← Back to exam</button>
+</div>
+<p class="records-description">Studies are saved in this browser on this device, with the most recent exam first.</p>
+<label class="records-search" for="record-search">Search patient data<input id="record-search" type="search" placeholder="Search patient name, ID or details" autocomplete="off">
+</label>
+<p id="record-notice" role="status">
+</p>
+<p id="record-count" role="status">
+</p>
+<div id="record-list">
+</div>
+<p id="records-empty" hidden>No saved studies yet.</p>
+<p class="records-storage-note">Clearing this site’s browser data removes these records. Export PDFs for copies you want to keep.</p>
+</section>
+</main>
+<dialog id="photo-source" class="photo-source-dialog" aria-labelledby="photo-source-title">
+<h2 id="photo-source-title">Frame photo</h2>
+<p class="photo-source-context">
+</p>
+<button type="button" data-photo-source="camera">Take photo</button>
+<button type="button" data-photo-source="library">Choose photo</button>
+<button type="button" data-photo-source="remove" class="photo-remove">Remove photo</button>
+<button type="button" data-photo-source="cancel" class="photo-cancel">Cancel</button>
+</dialog>
+<dialog id="photo-viewer" class="photo-viewer" aria-labelledby="photo-viewer-title">
+<header>
+<div>
+<h2 id="photo-viewer-title">Frame photo</h2>
+<p class="photo-viewer-context">
+</p>
+</div>
+<button type="button" class="photo-viewer-close" autofocus>Close</button>
+</header>
+<div class="photo-viewport" tabindex="0" aria-label="Frame photo. Pinch to zoom and drag to move.">
+<img alt="" draggable="false">
+</div>
+<footer>
+<div class="photo-zoom-controls">
+<button type="button" data-zoom="out" aria-label="Zoom out">−</button>
+<span class="photo-zoom-percent">100%</span>
+<button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+<button type="button" data-zoom="reset">Reset</button>
+</div>
+<span class="photo-zoom-hint">Pinch or double-tap to zoom · Drag to move</span>
+</footer>
+</dialog>
+</body>
+</html>
